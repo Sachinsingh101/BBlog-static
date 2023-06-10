@@ -1,0 +1,18 @@
+*{
+  margin:0px;
+  padding:0px;
+}
+html{scroll-behavior: smooth;}
+body{overflow-x:visible;}
+
+/* home */
+.Quickbar > div{display: flex;margin:2vh;padding:2px}
+.Quickbar > div h6{margin-left: 2vh;}
+.Quickbar > div:hover{cursor:pointer;background-color: rgb(245, 243, 243);}
+
+/* Appbar */
+.dashboardelement{padding-left:30px;padding-right:30px;margin-top:15px;}
+.dashboardelement:hover{cursor:pointer;background-color:#E2E3F7;text-decoration: underline;color:#454DE9;}
+.ql-syntax{background-color: black;color:#008080;padding:5px;border-radius: 10px;margin-top: 10px;width:90%;overflow-x: scroll;
+font-size:80%;}
+
