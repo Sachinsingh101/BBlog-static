@@ -15,24 +15,67 @@ import Events from './components/subpages/events';
 
 function App(){
     const user=useSelector((state)=>state.users.user);
-    return(
-    <>
-      <Appbar/>
-      <Routes>
-        <Route path='/create-blog' element={<Editors/>}/>
-        <Route path='/' element={<><Home/></>}
-         />
-        <Route path='/Signup' element={<><Signup/></>}/>
-        <Route path='/Signin' element={<><Signin/></>}/>
-        <Route path={`/account-settings/${user ? user.username : null}`} element={<><Setting/></>} />
-        <Route path='/:id' element={<><SpecifigBlog/></>} />
-        <Route path='/Search' element={<SearchPage/>} />
-        <Route path='/View-Profile/:id/:username' element={<ViewProfile/>} />
-        <Route path='/Events' element={<Events />} />
-      </Routes>
-      <Footer/>
-    </>
-  );
+    return (
+      <>
+        <Appbar />
+        <Routes>
+          <Route exact path='/create-blog' element={<Editors />} />
+          <Route
+            exact
+            path='/'
+            element={
+              <>
+                <Home />
+              </>
+            }
+          />
+          <Route
+            exact
+            path='/Signup'
+            element={
+              <>
+                <Signup />
+              </>
+            }
+          />
+          <Route
+            exact
+            path='/Signin'
+            element={
+              <>
+                <Signin />
+              </>
+            }
+          />
+          <Route
+            exact
+            path={`/account-settings/${user ? user.username : null}`}
+            element={
+              <>
+                <Setting />
+              </>
+            }
+          />
+          <Route
+            exact
+            path='/:id'
+            element={
+              <>
+                <SpecifigBlog />
+              </>
+            }
+          />
+          <Route exact path='/Search' element={<SearchPage />} />
+          <Route
+            exact
+            path='/View-Profile/:id/:username'
+            element={<ViewProfile />}
+          />
+          <Route exact path='/Events' element={<Events />} />
+        </Routes>
+        <Footer />
+      </>
+    );
 }
 
 export default App;
