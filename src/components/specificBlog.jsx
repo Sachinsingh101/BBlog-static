@@ -43,7 +43,7 @@ function SpecifigBlog() {
   useMemo(async () => {
     try {
       await axios
-        .get(`http://localhost:5000/getsingleblog/${id}`)
+        .get(`https://bblog-blogging-site.onrender.com/getsingleblog/${id}`)
         .then((res) => {
           setblog(res.data);
         });
@@ -59,7 +59,7 @@ function SpecifigBlog() {
     e.preventDefault();
     try {
       await axios
-        .post("http://localhost:5000/post-comment", {
+        .post("https://bblog-blogging-site.onrender.com/post-comment", {
           id: blog._id,
           comment: comment,
           picture: user.picture,
@@ -82,7 +82,7 @@ function SpecifigBlog() {
     const url = window.location.href;
     colorRef.current.style.color = "black";
     try {
-      await axios.post("http://localhost:5000/add-to-bookmarks", {
+      await axios.post("https://bblog-blogging-site.onrender.com/add-to-bookmarks", {
         heading: blog.heading,
         url,
         user: user._id,
@@ -127,7 +127,7 @@ function SpecifigBlog() {
                     startIcon={<FavoriteIcon />}
                     variant='text'
                     onClick={async () => {
-                      await axios.post("http://localhost:5000/likesRoute", {
+                      await axios.post("https://bblog-blogging-site.onrender.com/likesRoute", {
                         userid: user._id,
                         blogId:blog._id,
                       });

@@ -50,7 +50,7 @@ function Editors() {
       formdata.append("email",users.email);
       formdata.append("picture",users.picture);
        await axios
-        .post("http://localhost:5000/publish-blog", formdata)
+        .post("https://bblog-blogging-site.onrender.com/publish-blog", formdata)
         .then((res) => {
           console.log(res.data);
         });

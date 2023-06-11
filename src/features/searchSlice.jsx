@@ -22,7 +22,7 @@ export const fetchSearchResult=(e,search)=>{
     e.preventDefault();
     return async function fetchSearchThunk(dispatch,getState){
         try{
-            await axios.post("http://localhost:5000/search",{ value: search }).then((res) => {
+            await axios.post("https://bblog-blogging-site.onrender.com/search",{ value: search }).then((res) => {
                 dispatch(fetchSearch(res.data))
             });
         }catch(err){

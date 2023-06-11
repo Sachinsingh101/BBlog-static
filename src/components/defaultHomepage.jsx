@@ -86,7 +86,7 @@ function DefaulthomePage() {
                       whileTap={{ scale: 2 }}
                       variant='text'
                       onClick={async () => {
-                        await axios.post("http://localhost:5000/likesRoute", {
+                        await axios.post("https://bblog-blogging-site.onrender.com/likesRoute", {
                           userid: user._id,
                           blogId: result._id,
                         });

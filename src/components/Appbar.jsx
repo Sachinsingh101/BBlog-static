@@ -45,7 +45,7 @@ function Appbar() {
   };
   const Logout = async () => {
     axios
-      .get("http://localhost:5000/api/logout", { withCredentials: "include" })
+      .get("https://bblog-blogging-site.onrender.com/api/logout", { withCredentials: "include" })
       .then((res) => {});
   };
 

@@ -55,7 +55,7 @@ function Profile() {
     console.log(data);
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/cutomize-profile", {
+      await axios.post("https://bblog-blogging-site.onrender.com/cutomize-profile", {
         userid: data._id,
         custoMize: custoMize,
       });

@@ -31,7 +31,7 @@ function Drawers() {
     setopen(true);
   };
   const Logout=async()=>{
-      await axios.get('http://localhost:5000/api/logout',{withCredentials:true});
+      await axios.get('https://bblog-blogging-site.onrender.com/api/logout',{withCredentials:true});
   }
   return (
     <>
