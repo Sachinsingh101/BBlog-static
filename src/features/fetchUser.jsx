@@ -26,6 +26,7 @@ export function fetchUser(){
         try{
             const {data}= await axios.get('https://bblog-blogging-site.onrender.com/api/current_user',{withCredentials:'include'})
             dispatch(setUser(data));
+            console.log(data);
             dispatch(setStatus("IDLE"));
         }catch(err){
             console.log("error while getting user",err);
