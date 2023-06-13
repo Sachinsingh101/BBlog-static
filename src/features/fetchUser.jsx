@@ -24,10 +24,16 @@ export function fetchUser(){
     return async function fetchUserThunk(dispatch,getState){
         dispatch(setStatus("LOADING"));
         try{
-            const {data}= await axios.get('https://bblog-blogging-site.onrender.com/api/current_user',{withCredentials:'include'})
-            dispatch(setUser(data));
+            await axios
+              .get(
+                "https://bblog-blogging-site.onrender.com/api/current_user",
+                { withCredentials: "include" }
+              )
+              .then((res) => {
+                dispatch(setUser(res.data));
+                console.log(res.data);
+              });
             console.log(data);
-            dispatch(setStatus("IDLE"));
         }catch(err){
             console.log("error while getting user",err);
         }
