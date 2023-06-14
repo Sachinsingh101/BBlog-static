@@ -21,7 +21,7 @@ import Divider from "@mui/material/Divider";
 import { Link, useNavigate } from "react-router-dom";
 import { fetchUser } from "../features/fetchUser.jsx";
 import { useSelector, useDispatch } from "react-redux";
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import { fetchBlogsPosts } from "../features/fetchBlogs.jsx";
 import { fetchSearchResult } from "../features/searchSlice";
 import axios from "axios";
@@ -31,11 +31,14 @@ function Appbar() {
   const singleUser = useSelector((state) => state.users.user);
   const dispatch = useDispatch();
   const  [search,setSearch]=useState("");
-  useMemo(() => {
+  useEffect(() => {
     dispatch(fetchUser());
+    axios.get("https://bblog-blogging-site.onrender.com/api/current_user").then((res)=>{
+      console.log(res.data);
+    })
   }, []);
   
-  useMemo(() => {
+  useEffect(() => {
     dispatch(fetchBlogsPosts());
   }, []);
 
