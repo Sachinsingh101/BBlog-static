@@ -33,9 +33,6 @@ function Appbar() {
   const  [search,setSearch]=useState("");
   useEffect(() => {
     dispatch(fetchUser());
-    axios.get("https://bblog-blogging-site.onrender.com/api/current_user").then((res)=>{
-      console.log(res.data);
-    })
   }, []);
   
   useEffect(() => {
