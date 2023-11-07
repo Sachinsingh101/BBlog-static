@@ -58,7 +58,7 @@ function App(){
           />
           <Route
             exact
-            path='/:id'
+            path='/:heading/:id'
             element={
               <>
                 <SpecifigBlog />

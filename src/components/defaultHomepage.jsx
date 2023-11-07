@@ -1,6 +1,8 @@
+import internshipBanner from './images/internshipdrive.jpg'
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Snackbar from "@mui/material/Snackbar";
+import slugify from 'slugify'
 import {
   Box,
   Typography,
@@ -17,7 +19,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import BlogLoader from "./BlogLoader.jsx";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function DefaulthomePage() {
   const navigate = useNavigate();
   var Blogs = new Array();
@@ -27,6 +29,7 @@ function DefaulthomePage() {
   const handleClick = () => {
     setOpen(true);
   };
+  
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -37,12 +40,17 @@ function DefaulthomePage() {
   };
   return (
     <>
+      <Paper elevation={3}>
+        <a href="">
+          <img src={internshipBanner} style={{height:'150px',width:'100%'}} />
+        </a>
+      </Paper>
       {Blogs.length !== 0 ? (
         <Box mb={8}>
           {Blogs.map((result, index) => {
             return (
               <Paper
-                key={result._id}
+                key={index}
                 elevation={2}
                 sx={{
                   padding: "2vh",
@@ -54,7 +62,7 @@ function DefaulthomePage() {
                   src={result.image}
                   width={"100%"}
                   height={"200px"}
-                  alt='error'
+                  alt='error loading images'
                   effect='black-and-white'
                 />
                 <Box ml={2} sx={{ display: "flex", alignItems: "center" }}>
@@ -75,7 +83,7 @@ function DefaulthomePage() {
                   }}>
                   <Typography
                     variant='h6'
-                    onClick={() => navigate(`/${result._id}`)}>
+                    onClick={() => navigate(`/${slugify(result.heading)}/${result._id}`)}>
                     {result.heading}
                   </Typography>
                 </Box>
@@ -86,7 +94,7 @@ function DefaulthomePage() {
                       whileTap={{ scale: 2 }}
                       variant='text'
                       onClick={async () => {
-                        await axios.post("https://bblog-blogging-site.onrender.com/likesRoute", {
+                        await axios.post("/likesRoute", {
                           userid: user._id,
                           blogId: result._id,
                         });

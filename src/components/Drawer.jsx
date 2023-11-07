@@ -31,7 +31,7 @@ function Drawers() {
     setopen(true);
   };
   const Logout=async()=>{
-      await axios.get('https://bblog-blogging-site.onrender.com/api/logout',{withCredentials:true});
+      await axios.get('http://localhost:5021/api/logout',{withCredentials:true});
   }
   return (
     <>
@@ -43,7 +43,7 @@ function Drawers() {
           <List onClick={() => setopen(false)}>
             <img style={{width:'100%',height:'20vh',marginTop:'-20px'}} src={back} />
             <Box mb={3} mx={5}>
-              <Typography variant='h6'>BBlog Community Plus</Typography>
+              <Typography variant='h6'>Revcode community Pro</Typography>
             </Box>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <ListItemIcon>

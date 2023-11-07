@@ -44,9 +44,10 @@ function Appbar() {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
   const Logout = async () => {
-    axios
-      .get("https://bblog-blogging-site.onrender.com/api/logout", { withCredentials: "include" })
-      .then((res) => {});
+    await axios.get("http://localhost:5021/api/logout", { withCredentials: true })
+      .then((res) => 
+      {
+      });
   };
 
   const opens = Boolean(anchorEl);
@@ -59,7 +60,7 @@ function Appbar() {
         <Toolbar>
           <Drawers />
           <Box mx={2} sx={{ flexGrow: { xs: "1", md: "0" } }}>
-            <img src={bblog} alt='' style={{ height: "50px" }} />
+            <img src={bblog} alt='' style={{ height: "40px" }} />
           </Box>
           <Box sx={{ flexGrow: "1", display: { xs: "none", md: "block" } }}>
             <form onSubmit={(e)=>dispatch(fetchSearchResult(e,search))}>

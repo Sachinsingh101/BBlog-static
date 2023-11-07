@@ -7,8 +7,8 @@ function Footer(){
           <Grid container sx={{justifyContent:'center',backgroundColor:'#F2F3F4',padding:'20px'}}>
             <Grid item md={12} sx={{textAlign:'center'}}>
               <Box>
-                <Typography variant='h6'>BBlog community</Typography>
-                <Typography variant='subtitle1'>“If you want to shine like a sun, first burn like a sun.”</Typography>
+                <Typography variant='h6'>Revcode community Pro</Typography>
+                <Typography variant='subtitle1'>“Let's Revolutionize the coding”</Typography>
               </Box>
               <Box spacing sx={{fontSize:'20px',display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
                 <Box m={1}><Link to=''><Typography sx={{color:'black',textDecoration:'none'}} variant='h6'>Home</Typography></Link></Box>

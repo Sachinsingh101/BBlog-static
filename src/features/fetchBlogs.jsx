@@ -20,7 +20,7 @@ export default fetchBlogSlice.reducer
 function fetchBlogsPosts(){
     return async function fetchBlogsThunk(dispatch,getState){
         try{
-            await axios.get('https://bblog-blogging-site.onrender.com/getblogs').then((res)=>{
+            await axios.get('http://localhost:5021/getblogs').then((res)=>{
                 dispatch(fetchblog(res.data));
             })
         }catch(err){

@@ -27,7 +27,7 @@ function SpecifigBlog() {
   moreblogs = useSelector((state) => state.blogs.blogs);
   const [blog, setblog] = useState("");
   const [comment, setComment] = useState("");
-  const { id } = useParams();
+  const { heading,id } = useParams();
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(true);
@@ -43,12 +43,12 @@ function SpecifigBlog() {
   useMemo(async () => {
     try {
       await axios
-        .get(`https://bblog-blogging-site.onrender.com/getsingleblog/${id}`)
+        .get(`http://localhost:5021/getsingleblog/${id}`)
         .then((res) => {
           setblog(res.data);
         });
     } catch (err) {
-      console.log("error fetching single blog");
+      console.log("error fetching single blog",err);
     }
   }, []);
 
@@ -59,7 +59,7 @@ function SpecifigBlog() {
     e.preventDefault();
     try {
       await axios
-        .post("https://bblog-blogging-site.onrender.com/post-comment", {
+        .post("http://localhost:5021/post-comment", {
           id: blog._id,
           comment: comment,
           picture: user.picture,
@@ -82,7 +82,7 @@ function SpecifigBlog() {
     const url = window.location.href;
     colorRef.current.style.color = "black";
     try {
-      await axios.post("https://bblog-blogging-site.onrender.com/add-to-bookmarks", {
+      await axios.post("http://localhost:5021/add-to-bookmarks", {
         heading: blog.heading,
         url,
         user: user._id,
@@ -127,7 +127,7 @@ function SpecifigBlog() {
                     startIcon={<FavoriteIcon />}
                     variant='text'
                     onClick={async () => {
-                      await axios.post("https://bblog-blogging-site.onrender.com/likesRoute", {
+                      await axios.post("http://localhost:5021/likesRoute", {
                         userid: user._id,
                         blogId:blog._id,
                       });
