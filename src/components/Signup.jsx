@@ -12,10 +12,10 @@ import img from "./images/bblog.png";
 import { Link } from "react-router-dom";
 function Signup() {
   const Google=()=>{
-    window.open("https://revcode-service.onrender.com/auth/callback","_self");
+    window.open("https://revcode-service.onrender.com/auth/google","_self");
   }
   const Github=()=>{
-    window.open("https://revcode-service.onrender.com/auth/github/callback","_self");
+    window.open("https://revcode-service.onrender.com/auth/github","_self");
   }
   return (
     <>
