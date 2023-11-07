@@ -44,7 +44,7 @@ function Appbar() {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
   const Logout = async () => {
-    await axios.get("http://localhost:5021/api/logout", { withCredentials: true })
+    await axios.get("https://revcode-service.onrender.com/api/logout", { withCredentials: true })
       .then((res) => 
       {
       });

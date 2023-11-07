@@ -24,7 +24,7 @@ export function fetchUser(){
     return async function fetchUserThunk(dispatch,getState){
         dispatch(setStatus("LOADING"));
         try{
-            const {data} = await axios.get("http://localhost:5021/api/current_user",{withCredentials:"include"});
+            const {data} = await axios.get("https://revcode-service.onrender.com/api/current_user",{withCredentials:"include"});
             dispatch(setUser(data));
             console.log(data, "error data not getten");
             dispatch(setStatus("IDLE"));

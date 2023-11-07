@@ -43,7 +43,7 @@ function SpecifigBlog() {
   useMemo(async () => {
     try {
       await axios
-        .get(`http://localhost:5021/getsingleblog/${id}`)
+        .get(`https://revcode-service.onrender.com/getsingleblog/${id}`)
         .then((res) => {
           setblog(res.data);
         });
@@ -59,7 +59,7 @@ function SpecifigBlog() {
     e.preventDefault();
     try {
       await axios
-        .post("http://localhost:5021/post-comment", {
+        .post("https://revcode-service.onrender.com/post-comment", {
           id: blog._id,
           comment: comment,
           picture: user.picture,
@@ -82,7 +82,7 @@ function SpecifigBlog() {
     const url = window.location.href;
     colorRef.current.style.color = "black";
     try {
-      await axios.post("http://localhost:5021/add-to-bookmarks", {
+      await axios.post("https://revcode-service.onrender.com/add-to-bookmarks", {
         heading: blog.heading,
         url,
         user: user._id,
@@ -127,7 +127,7 @@ function SpecifigBlog() {
                     startIcon={<FavoriteIcon />}
                     variant='text'
                     onClick={async () => {
-                      await axios.post("http://localhost:5021/likesRoute", {
+                      await axios.post("https://revcode-service.onrender.com/likesRoute", {
                         userid: user._id,
                         blogId:blog._id,
                       });

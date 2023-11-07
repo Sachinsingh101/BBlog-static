@@ -51,7 +51,7 @@ function Editors() {
       formdata.append("picture", users.picture);
       setpublish(true);
       await axios
-        .post("http://localhost:5021/publish-blog", formdata)
+        .post("https://revcode-service.onrender.com/publish-blog", formdata)
         .then((res) => {console.log("Blog published successfully")});
     } catch (err) {
       console.log("error while publishing a blog", err);

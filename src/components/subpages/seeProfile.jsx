@@ -22,7 +22,7 @@ function ViewProfile() {
   useMemo(async () => {
     try {
       await axios
-        .get(`https://bblog-blogging-site.onrender.com/user-profile/${Params.id}`)
+        .get(`https://revcode-service.onrender.com/user-profile/${Params.id}`)
         .then((res) => {
           setUser(res.data);
           //  console.log(res.data)
