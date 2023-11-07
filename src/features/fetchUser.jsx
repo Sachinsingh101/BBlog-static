@@ -1,5 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
+
+axios.defaults.withCredentials = true;
+
 const initialState={
     user:null,
     STATUS:null,
