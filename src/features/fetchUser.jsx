@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from 'axios';
 
+axios.defaults.withCredentials=true;
 
 const initialState={
     user:null,
@@ -26,7 +27,12 @@ export function fetchUser(){
     return async function fetchUserThunk(dispatch,getState){
         dispatch(setStatus("LOADING"));
         try{
-            const {data} = await axios.get("https://revcode-service.onrender.com/api/current_user",{withCredentials:"include"});
+            const {data} =axios({
+                url:'https://revcode-service.onrender.com/api/current_user',
+                method:'GET',
+                withCredentials:true
+            })
+            
             dispatch(setUser(data));
             console.log(data, "error data not getten");
             dispatch(setStatus("IDLE"));
